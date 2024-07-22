@@ -1,8 +1,12 @@
 <template>
     <h1>Confectionery</h1>
-    
-  <!-- End of cart -->
-  <!-- Products section -->
+    <v-btn
+        color="deep-purple-lighten-2"
+        text="Manage Products"
+        to = "/manage_products"
+    ></v-btn>
+  
+    <!-- Products section -->
     <div>
         <v-row>
         <v-col cols="12" md="4"  v-for="product in stock" :key=product>     
@@ -12,17 +16,17 @@
             >
                 <v-img
                     height="250"
-                    :src="product.itemImage"
+                    :src="product.productImagePath"
                     cover
                 ></v-img>
 
                 <v-card-item>
-                    <v-card-title>{{product.itemName}}</v-card-title>
+                    <v-card-title>{{product.productName}}</v-card-title>
                 </v-card-item>
 
                 <v-card-text>
-                    <div class="my-4 text-subtitle-1">{{product.itemPrice}}</div>
-                    <div>{{ product.description }}</div>
+                    <div class="my-4 text-subtitle-1">{{product.productPrice}}</div>
+                    <div>{{ product.productDescription }}</div>
                 </v-card-text>
 
                 <v-divider class="mx-4 mb-1"></v-divider>
@@ -52,7 +56,8 @@
         },
         methods:{
             ...mapActions([
-                "addToCart"
+                "addToCart",
+                "fetchProducts" // action to trigger fetching products from api
             ])
 
         },
@@ -61,5 +66,8 @@
                 stock: 'stock'
             })
         },
+        created() {
+            this.fetchProducts() // retrieve the products when the component is called
+        }
     }
 </script>
