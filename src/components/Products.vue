@@ -49,6 +49,9 @@
     import { mapActions, mapGetters } from 'vuex'
 
     export default {
+
+    // option API style  in vue (class based)
+    //composition API style function based
         data(){
             return{
                
