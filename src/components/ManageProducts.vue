@@ -247,7 +247,7 @@
             save(){
                 try {
                     axios
-                    .post('http://127.0.0.1:8000/api/products', this.newProduct)
+                    .post('https://camelshop2backend-1.onrender.com/api/products', this.newProduct)
                     .then((response) => console.log(response))
                     this.fetchProducts()
                     this.add_dialog = false
@@ -279,7 +279,7 @@
             update(){
                 try {
                     axios
-                    .put('http://127.0.0.1:8000/api/products/' + this.editProductItems.id, this.editProductItems)
+                    .put('https://camelshop2backend-1.onrender.com/api/products' + this.editProductItems.id, this.editProductItems)
                     .then((response) => console.log(response))
                     this.fetchProducts()
                     this.edit_dialog = false

@@ -109,7 +109,7 @@ const actions = {
 	async fetchProducts({ commit }) {
 		try {
 		  const data = await axios.get(
-			"https://camelshop2backend-1.onrender.com" // base url + endpoint
+			"https://camelshop2backend-1.onrender.com/api/products" // base url + endpoint
 		  );
 		  commit("SET_PRODUCTS", data.data);
 		} catch (error) {
